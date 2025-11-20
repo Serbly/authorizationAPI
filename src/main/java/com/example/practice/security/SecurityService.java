@@ -19,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -40,7 +41,8 @@ public class SecurityService {
         }
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginRequest.getUsername(),
-                loginRequest.getPassword()));
+                loginRequest.getPassword()
+        ));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

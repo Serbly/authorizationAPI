@@ -22,7 +22,6 @@ public class User {
     private String password;
 
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
-    @Column(name = "roles", nullable = false)
     @Enumerated(EnumType.STRING)
     @Builder.Default
     @ElementCollection(targetClass = RoleType.class, fetch = FetchType.EAGER)

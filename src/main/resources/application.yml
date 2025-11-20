@@ -4,12 +4,12 @@ spring:
       host: localhost
       port: 6379
   application:
-    name: practice
+    name: authorization
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/practice
-    username: serbly
-    password: qwerty2411.
+    url: jdbc:postgresql://localhost:5432/authorization_db
+    username: postgres
+    password: Qwerty2411.
 
   jpa:
     hibernate:

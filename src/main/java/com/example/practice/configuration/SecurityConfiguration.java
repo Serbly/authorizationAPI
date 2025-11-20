@@ -18,11 +18,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableMethodSecurity
 @RequiredArgsConstructor
-public class SecurityConfiguration {
+public class SecurityConfiguration implements WebMvcConfigurer {
     private final UserDetailsServiceImpl userDetailsService;
 
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -58,8 +59,8 @@ public class SecurityConfiguration {
                     .anyRequest().authenticated()
             )
             .exceptionHandling(configurer -> configurer.authenticationEntryPoint(jwtAuthenticationEntryPoint))
-            .csrf(AbstractHttpConfigurer::disable)
             .httpBasic(Customizer.withDefaults())
+            .csrf(AbstractHttpConfigurer::disable)
             .sessionManagement(sm -> sm
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
