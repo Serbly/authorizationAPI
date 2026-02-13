@@ -52,7 +52,9 @@ DTO → Entity → Mapper
 Примеры запросов:
 
 Регистрация: POST /api/auth/register
+
 Авторизация: POST /api/auth/signin
+
 Обновление токена: POST /api/auth/refresh
 
 ## 🎯 Назначение проекта
